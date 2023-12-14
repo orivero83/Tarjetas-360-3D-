@@ -1,0 +1,66 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background: url(./bgPro4.jpg);  /* Paisaje */
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.slider
+{
+    position: relative;
+    width: 200px;
+    height: 200px;
+    transform-style: preserve-3d;
+    animation: rotate 50s linear infinite;
+}
+
+@keyframes rotate
+{
+    0%
+    {
+        transform: perspective(1000px) rotateY(0deg);
+    }
+    100%
+    {
+        transform: perspective(1000px) rotateY(360deg);
+    }
+}
+
+span
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform-origin: center;
+    transform-style: preserve-3d;
+    transform: rotateY(calc(var(--i)*240deg)) translateZ(1px);
+}
+
+img
+{
+    margin-left: 300px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 180%;
+    height: 120%;
+    border-radius: 5%;
+    object-fit: cover;
+    transition: 2s;
+}
+
+.slider span:hover img
+{
+    transform: translateY(-50px) scale(1.2);
+}
